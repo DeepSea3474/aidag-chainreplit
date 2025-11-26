@@ -1,0 +1,41 @@
+/* Mobil uyum için genel düzenleme */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+    margin: 0;
+  }
+
+  header.nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 18px;
+    padding: 8px;
+    text-decoration: none;
+  }
+
+  .container {
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+
+  img {
+
