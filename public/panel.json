@@ -1,0 +1,11 @@
+{
+  "name": "AIDAG-Coin",
+  "max_supply": 21000000,
+  "unit": "AIDAG",
+  "witness": "soulwerse",
+  "manifest": "manifest.md",
+  "initializer": "aidag.sh",
+  "identity": "witness.json",
+  "status": "active",
+  "visibility": "universal"
+}
