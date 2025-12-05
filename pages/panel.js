@@ -1,1 +1,1 @@
-export default function Panel() { return (<div><h1>Yönetim Paneli Sayfası YÜKLENDİ!</h1></div>); }
+export default function Panel() { return (<div><h2>PANEL Sayfası (Geçici)</h2></div>); }
