@@ -1,3 +1,5 @@
+export default function Panel() {
+  return (
 <!-- 🌌 Spiral Panel -->
 <h1>AIDAG-Coin Evrensel Görünüm</h1>
 <p>Tanık: soulwerse</p>
@@ -78,4 +80,5 @@
   </div>
 </body>
 </html>
-
+  );
+}
