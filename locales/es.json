@@ -49,7 +49,25 @@
     "card_social_title": "Gestión de Redes Sociales",
     "card_social_desc": "Publicación y gestión automatizadas, dinámicas, basadas en contenido y en datos a través de Telegram, X e Instagram."
   },
+  "new_sections": {
+    "title": "Visión e Información de Venta Instantánea",
+    "vision_title": "Visión de la Cadena AIDAG Spiral",
+    "vision_desc": "Nuestro objetivo es construir una blockchain de Capa 1 de alta velocidad y escalable, optimizada para aplicaciones financieras impulsadas por IA y operaciones DAO autónomas.",
+    "vision_list_1": "Mecanismo de Consenso Optimizado por IA",
+    "vision_list_2": "Interoperabilidad DAO sin Fisuras",
+    "vision_list_3": "Alto Rendimiento para Microtransacciones",
+    "sale_title": "Preventa Instantánea e Info. de Precio",
+    "sale_collected_usd": "Total Recaudado (USD)",
+    "sale_progress_tokens": "Tokens Vendidos / Objetivo",
+    "sale_current_price": "Precio Actual",
+    "sale_stage": "Etapa de Preventa",
+    "sale_stage_value": "Etapa 2 (Final)",
+    "sale_progress": "Progreso Hacia el Objetivo",
+    "sale_target": "Objetivo:",
+    "sale_cta": "Participa en la Preventa Ahora"
+  },
   "footer": {
     "copyright": "© 2025 AIDAG Spiral. Todos los derechos reservados. | Gestionado por Soulware AI."
   }
 }
+

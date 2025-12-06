@@ -49,6 +49,23 @@
     "card_social_title": "社交媒体管理",
     "card_social_desc": "通过 Telegram、X 和 Instagram 进行动态、内容驱动和数据驱动的自动化发帖和管理。"
   },
+  "new_sections": {
+    "title": "愿景与即时销售信息",
+    "vision_title": "AIDAG Spiral Chain 愿景",
+    "vision_desc": "我们的目标是建立一个高速、可扩展的第 1 层区块链，该区块链针对 AI 驱动的金融应用和自主 DAO 操作进行了优化。",
+    "vision_list_1": "AI 优化共识机制",
+    "vision_list_2": "无缝 DAO 互操作性",
+    "vision_list_3": "微交易的高吞吐量",
+    "sale_title": "即时预售和价格信息",
+    "sale_collected_usd": "总募集资金 (USD)",
+    "sale_progress_tokens": "已售代币 / 目标",
+    "sale_current_price": "当前价格",
+    "sale_stage": "预售阶段",
+    "sale_stage_value": "第 2 阶段 (最终)",
+    "sale_progress": "达成目标的进度",
+    "sale_target": "目标:",
+    "sale_cta": "立即参与预售"
+  },
   "footer": {
     "copyright": "© 2025 AIDAG Spiral. 版权所有. | 由 Soulware AI 管理."
   }
