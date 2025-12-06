@@ -1,0 +1,22 @@
+[build]
+  # Next.js uygulamaları için derleme komutu
+  command = "npm run build"
+  # Dağıtılacak klasör (Next.js'in varsayılan çıktısı)
+  publish = ".next"
+  
+# Netlify'a bu projenin Next.js olduğunu ve sunucu tarafı mantık gerektiğini belirtmek için gerekli plugin
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# 8 dilli yapılandırma için gerekli yönlendirmeler
+[[redirects]]
+  from = "/:lang"
+  to = "/:lang"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/tr" # Varsayılan dil (index.js yerine tr'ye yönlendirme)
+  status = 302
+  force = true
