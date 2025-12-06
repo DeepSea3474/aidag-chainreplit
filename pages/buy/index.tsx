@@ -18,6 +18,10 @@ const CONTRACT_ABI = [
   }
 ];
 
+type EthereumProvider = {
+  request: (args: { method: string }) => Promise<string[]>;
+};
+
 export default function BuyPage() {
   const [account, setAccount] = useState<string | null>(null);
   const [status, setStatus] = useState<string>("");
@@ -25,8 +29,8 @@ export default function BuyPage() {
   async function connectWallet() {
     if (typeof window !== "undefined" && (window as unknown as { ethereum?: unknown }).ethereum) {
       try {
-        const ethereum = (window as unknown as { ethereum: any }).ethereum;
-        const accounts: string[] = await ethereum.request({ method: "eth_requestAccounts" });
+        const ethereum = (window as unknown as { ethereum: EthereumProvider }).ethereum;
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
         setAccount(accounts[0]);
         setStatus("Wallet connected");
       } catch (err: unknown) {
@@ -45,8 +49,8 @@ export default function BuyPage() {
         return;
       }
 
-      const ethereum = (window as unknown as { ethereum: any }).ethereum;
-      const provider = new ethers.BrowserProvider(ethereum);
+      const ethereum = (window as unknown as { ethereum: unknown }).ethereum;
+      const provider = new ethers.BrowserProvider(ethereum as any);
       const signer = await provider.getSigner();
       const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 
