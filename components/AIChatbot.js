@@ -1,48 +1,46 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/router';
+"use client";
 
-// Dil dosyalarını içe aktar
-import en from '../locales/en.json';
-import tr from '../locales/tr.json';
-import de from '../locales/de.json';
-import fr from '../locales/fr.json';
-import ar from '../locales/ar.json';
-import ru from '../locales/ru.json';
-import es from '../locales/es.json';
-import zh from '../locales/zh.json';
+import { useState } from "react";
 
-const locales = { en, tr, de, fr, ar, ru, es, zh };
+export default function AIChatbot({ translations }) {
+  // İlk mesajı doğrudan initial state ile başlatıyoruz
+  const [messages, setMessages] = useState([
+    translations?.welcome || "Welcome to AIChatbot"
+  ]);
+  const [input, setInput] = useState("");
 
-export default function AIChatbot() {
-  const router = useRouter();
-  const { locale } = router;
+  function addMessage(message) {
+    setMessages((prev) => [...prev, message]);
+  }
 
-  // Seçili dil dosyasını al
-  const translations = locales[locale] || locales.en;
-
-  const [messages, setMessages] = useState([]);
-
-  const addMessage = useCallback((msg) => {
-    setMessages((prev) => [...prev, msg]);
-  }, []);
-
-  useEffect(() => {
-    // Örnek: ilk mesajı yükle
-    addMessage(translations.welcome || "Welcome to AIChatbot");
-  }, [addMessage, translations]);
+  function handleSend() {
+    if (input.trim() === "") return;
+    addMessage(input);
+    setInput("");
+  }
 
   return (
-    <div className="p-4 border rounded bg-white">
-      <h2 className="text-xl font-bold mb-2">
-        {translations.title || "AI Chatbot"}
-      </h2>
-      <ul className="space-y-2">
-        {messages.map((m, i) => (
-          <li key={i} className="p-2 bg-gray-100 rounded">
-            {m}
-          </li>
+    <div className="p-4 border rounded">
+      <h2 className="text-lg font-bold mb-2">AIChatbot</h2>
+      <div className="mb-4">
+        {messages.map((msg, idx) => (
+          <div key={idx} className="mb-1">
+            {msg}
+          </div>
         ))}
-      </ul>
+      </div>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="border p-2 mr-2"
+      />
+      <button
+        onClick={handleSend}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Send
+      </button>
     </div>
   );
 }

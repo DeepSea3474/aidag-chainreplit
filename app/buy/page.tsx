@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 
-const CONTRACT_ADDRESS = "0xe6B06f7C63F6AC84729007..."; // buraya gerçek adresini yaz
+const CONTRACT_ADDRESS = "0xe6B06f7C63F6AC84729007..."; // gerçek adresini yaz
 const CONTRACT_ABI = [
   {
     type: "function",
@@ -26,8 +26,8 @@ export default function BuyPage() {
       return;
     }
 
-    // ✅ 'any' yerine 'unknown' kullandık
-    const provider = new ethers.BrowserProvider(window.ethereum as unknown);
+    // ✅ Doğru tip cast
+    const provider = new ethers.BrowserProvider(window.ethereum as ethers.Eip1193Provider);
     const signer = await provider.getSigner();
     const contract = new ethers.Contract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
 
