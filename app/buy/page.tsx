@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { ethers } from "ethers";
+import dynamic from "next/dynamic";
 
 const CONTRACT_ADDRESS = "0xe6B06f7C63F6AC84729007ae8910010F6E721041";
 const CONTRACT_ABI = [
@@ -67,5 +67,5 @@ function BuyPage() {
   );
 }
 
-// SSR sırasında yüklenmesin → sadece client tarafında render
+// SSR tamamen kapatıldı
 export default dynamic(() => Promise.resolve(BuyPage), { ssr: false });
