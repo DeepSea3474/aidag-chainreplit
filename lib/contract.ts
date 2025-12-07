@@ -6,7 +6,7 @@ import abi from "./abi.json"; // kendi ABI dosyanı buraya koy
 export default function BuyTokenButton() {
   const { writeContract } = useWriteContract();
 
-  const handleBuy = async () => {
+  async function handleBuy() {
     await writeContract({
       address: "0xe6B06f7C63F6AC84729007ae8910010F6E721041", // resmi kontrat
       abi,
@@ -17,7 +17,7 @@ export default function BuyTokenButton() {
         1000
       ]
     });
-  };
+  }
 
   return (
     <button onClick={handleBuy}>
