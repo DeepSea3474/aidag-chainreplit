@@ -1,2 +1,4 @@
 .next/cache
 .next/server/**/*.map
+.next/static/chunks/*.pack
+.next/static/chunks/*.map
