@@ -1,18 +1,17 @@
 "use client";
 
-import Link from "next/link";
+import dynamic from "next/dynamic";
 
-export default function HomePage() {
+function HomePage() {
   return (
-    <main>
+    <div style={{ padding: "2rem" }}>
       <h1>Welcome to Aidag Chain</h1>
-      <p>
-        Go to <Link href="/buy">Buy Page</Link>
-      </p>
-      <p>
-        See <Link href="/info">Info Page</Link>
-      </p>
-    </main>
+      <p>Resmi kontrat adresi: 0xe6B06f7C63F6AC84729007ae8910010F6E721041</p>
+      <p>Token satın almak için üst menüden <strong>Buy Aidag Token</strong> sayfasına gidin.</p>
+    </div>
   );
 }
+
+// SSR tamamen kapatıldı → sadece client tarafında render
+export default dynamic(() => Promise.resolve(HomePage), { ssr: false });
 
