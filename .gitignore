@@ -14,3 +14,7 @@ yarn-error.log*
 .DS_Store
 .vercel
 .env*.local
+
+# Next.js build output
+.next/
+node_modules/
