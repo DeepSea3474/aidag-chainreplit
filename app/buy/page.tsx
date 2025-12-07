@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { ethers } from "ethers";
 
-const CONTRACT_ADDRESS = "0xe6B06f7C63F6AC84729007ae8910010F6E721041"; // Resmi Aidag Chain kontrat adresin
+const CONTRACT_ADDRESS = "0xe6B06f7C63F6AC84729007ae8910010F6E721041";
 const CONTRACT_ABI = [
   {
     type: "function",
@@ -20,16 +20,10 @@ const CONTRACT_ABI = [
 export default function BuyPage() {
   const [amount, setAmount] = useState("");
   const [status, setStatus] = useState("");
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    // SSR sırasında window.ethereum çağrısı yapılmasın
-    setIsClient(true);
-  }, []);
 
   async function handleBuy() {
     try {
-      if (!isClient || !window.ethereum) {
+      if (typeof window === "undefined" || !window.ethereum) {
         setStatus("MetaMask gerekli!");
         return;
       }
@@ -46,9 +40,13 @@ export default function BuyPage() {
 
       await tx.wait();
       setStatus("Token satın alındı!");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-      setStatus("Hata: " + err.message);
+      if (err instanceof Error) {
+        setStatus("Hata: " + err.message);
+      } else {
+        setStatus("Bilinmeyen hata");
+      }
     }
   }
 
