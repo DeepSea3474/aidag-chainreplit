@@ -32,7 +32,7 @@ export default function SoulwareAIChat() {
           overflowY: "auto",
           marginBottom: "1rem"
         }}
-       >
+      >
         {messages.map((msg, idx) => (
           <div
             key={idx}
@@ -67,4 +67,15 @@ export default function SoulwareAIChat() {
           onClick={sendMessage}
           style={{
             padding: "0.5rem 1rem",
-
+            background: "#0070f3",
+            color: "#fff",
+            border: "none",
+            borderRadius: "5px"
+          }}
+        >
+          Send
+        </button>
+      </div>
+    </main>
+  );
+}         
