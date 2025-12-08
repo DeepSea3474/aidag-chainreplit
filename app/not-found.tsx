@@ -1,6 +1,9 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
+
+// Bu satır sayfanın prerender edilmesini engeller
+export const dynamic = "force-dynamic";
 
 function NotFoundPage() {
   return (
@@ -11,5 +14,4 @@ function NotFoundPage() {
   );
 }
 
-// SSR tamamen kapatıldı → sadece client tarafında render
-export default dynamic(() => Promise.resolve(NotFoundPage), { ssr: false });
+export default nextDynamic(() => Promise.resolve(NotFoundPage), { ssr: false });
