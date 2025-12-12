@@ -3,25 +3,33 @@
 'use client'; 
 
 import * as React from 'react';
-import { WagmiConfig, createConfig, mainnet, http } from 'wagmi';
+import { WagmiConfig, createConfig, mainnet } from 'wagmi';
+import { http } from 'wagmi/connectors'; // <-- Hata veren 'http' artık buradan geliyor
+import { injected } from 'wagmi/connectors'; // Opsiyonel, genellikle Metamask için kullanılır
 
 // 1. Kullanmak istediğiniz ağları (chains) tanımlayın
 const config = createConfig({
-  chains: [mainnet], // Başlangıç için sadece Ethereum Mainnet'i kullanıyoruz.
-                      // Diğer ağları (polygon, arbitrum vb.) buraya ekleyebilirsiniz.
+  // Tüm bağlantıların otomatik olarak denemesini sağlar.
+  autoConnect: true, 
+  
+  // Ana ağları ve transport (RPC) ayarlarını tanımlıyoruz.
+  chains: [mainnet], 
   transports: {
+    // Ethereum Mainnet için varsayılan HTTP bağlantısını kullanıyoruz.
     [mainnet.id]: http(), 
   },
-  // Eğer WalletConnect kullanıyorsanız buraya ek ayarlar gerekebilir:
-  // connectors: [
-  //   walletConnect({ projectId: 'YOUR_PROJECT_ID' }), 
-  //   injected(),
-  // ],
+  
+  // Eğer cüzdan bağlantılarını (Metamask, WalletConnect vb.) desteklemek istiyorsanız:
+  connectors: [
+    injected(),
+    // Eğer WalletConnect kullanacaksanız buraya ekleyin: 
+    // walletConnect({ projectId: 'YOUR_WALLETCONNECT_PROJECT_ID' }), 
+  ],
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    // WagmiProvider, uygulamanızın tüm Web3 etkileşimlerini sağlar
+    // Uygulamanın Web3 bağlamını sağlar
     <WagmiConfig config={config}>
       {children}
     </WagmiConfig>
