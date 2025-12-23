@@ -1,20 +1,4 @@
-import Image from "next/image";
-
-export default function Home() {
-  return (
-    <div>
-      <header>
-        <Image src="/logo.png" alt="Aidag Logo" width={120} height={120} />
-        <nav>
-          <a href="/panel">Panel</a> | <a href="/dao">DAO</a>
-        </nav>
-      </header>
-      <main>
-               
-  <div className="announcement">
-    <h1>🚀 Aidag Website Coming Soon</h1>
-    <p>We are preparing to launch the Aidag platform. Stay tuned for the official release and presale announcement in early 2026!</p>
-  </div> import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({days:0,hours:0,minutes:0,seconds:0});
@@ -61,8 +45,3 @@ export default function Home() {
   );
 }
 
-  {/* mevcut içerik burada kalır */}
-</main>
-    </div>
-  );
-}
