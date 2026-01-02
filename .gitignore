@@ -1,0 +1,8 @@
+# Bağımlılık klasörleri
+node_modules/
+
+# Next.js build çıktıları
+.next/
+
+# Ortam değişkenleri
+.env.local
