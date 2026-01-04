@@ -1,0 +1,8 @@
+{
+  "name": "aidag-site",
+  "main": ".vercel/output/static/_worker.js/index.js",
+  "build": {
+    "command": "next build",
+    "cwd": "."
+  }
+}
